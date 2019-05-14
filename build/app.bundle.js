@@ -9477,15 +9477,109 @@ module.exports = function (regExp, replace) {
 "use strict";
 
 
-var test = function test() {
-  return console.log("thats grate");
-};
-test();
+var _data = __webpack_require__(334);
 
-var _require = __webpack_require__(334)(),
-    data = _require.data;
+var _data2 = _interopRequireDefault(_data);
 
-console.log(data);
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; } //Importing async with fetch function from another module
+
+
+//Constructing Front End
+var serveFrontEnd = function () {
+  var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+    var exchangeRates, dateTime, _iteratorNormalCompletion, _didIteratorError, _iteratorError, _iterator, _step, currency, data, node;
+
+    return regeneratorRuntime.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            _context.next = 2;
+            return (0, _data2.default)();
+
+          case 2:
+            exchangeRates = _context.sent;
+
+
+            //Spliting data
+            dateTime = exchangeRates.time.split(" ");
+
+            document.getElementById("date").innerText = "Date: " + dateTime[0];
+            document.getElementById("time").innerText = "Time: " + dateTime[1];
+
+            //Using if statement
+
+            if (!exchangeRates) {
+              _context.next = 26;
+              break;
+            }
+
+            //Defineing for loop by using Object.Keys
+            _iteratorNormalCompletion = true;
+            _didIteratorError = false;
+            _iteratorError = undefined;
+            _context.prev = 10;
+            for (_iterator = Object.keys(exchangeRates.rates)[Symbol.iterator](); !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+              currency = _step.value;
+
+              //Creating data structre
+              //Using let for defining variable
+              data = exchangeRates.rates[currency];
+              node = document.createElement("tr");
+
+              //Sending API data Using Template Litral
+
+              document.querySelector("#mainBody").appendChild(node).innerHTML = "<th>" + currency + "</th><th>" + data.rate + "</th><th>" + data.name + "</th>";
+            }
+            _context.next = 18;
+            break;
+
+          case 14:
+            _context.prev = 14;
+            _context.t0 = _context["catch"](10);
+            _didIteratorError = true;
+            _iteratorError = _context.t0;
+
+          case 18:
+            _context.prev = 18;
+            _context.prev = 19;
+
+            if (!_iteratorNormalCompletion && _iterator.return) {
+              _iterator.return();
+            }
+
+          case 21:
+            _context.prev = 21;
+
+            if (!_didIteratorError) {
+              _context.next = 24;
+              break;
+            }
+
+            throw _iteratorError;
+
+          case 24:
+            return _context.finish(21);
+
+          case 25:
+            return _context.finish(18);
+
+          case 26:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee, undefined, [[10, 14, 18, 26], [19,, 21, 25]]);
+  }));
+
+  return function serveFrontEnd() {
+    return _ref.apply(this, arguments);
+  };
+}();
+
+//Calling the function for rendering FrontEnd
+serveFrontEnd();
 
 /***/ }),
 /* 334 */
@@ -9494,14 +9588,44 @@ console.log(data);
 "use strict";
 
 
-module.exports = function () {
-  var data = fetch("http://localhost:3368/api/profile/all").then(function (res) {
-    return res.json();
-  }).then(function (data) {
-    return data;
-  });
-  return data;
-};
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+//Creaeing data fetching arrow function with async and fetch api
+var fetchExchangeRatesFromAPI = function () {
+  var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+    return regeneratorRuntime.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            _context.next = 2;
+            return fetch("https://apiv2.bitcoinaverage.com/constants/exchangerates/local").then(function (res) {
+              return res.json();
+            }).then(function (data) {
+              return data;
+            });
+
+          case 2:
+            return _context.abrupt("return", _context.sent);
+
+          case 3:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee, undefined);
+  }));
+
+  return function fetchExchangeRatesFromAPI() {
+    return _ref.apply(this, arguments);
+  };
+}();
+
+//Exporting data fetching async function
+exports.default = fetchExchangeRatesFromAPI;
 
 /***/ })
 /******/ ]);
