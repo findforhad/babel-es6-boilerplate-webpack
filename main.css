@@ -1,0 +1,38 @@
+body {
+  background: #bdc3c7;
+  font-family: "Oswald", sans-serif;
+}
+.row {
+  margin-top: 30px;
+}
+th {
+  text-align: center;
+}
+nav {
+  background: rgb(52, 73, 94);
+}
+h4.brand-logo.center {
+  padding: 0 !important;
+  margin: 15px 0;
+  color: white;
+}
+h2 {
+  font-size: 3rem;
+  line-height: 45%;
+  margin: none;
+}
+.row .col {
+  padding: 5px !important;
+}
+.card-content {
+  text-align: center;
+}
+.card {
+  background-color: rgb(22, 155, 255) !important;
+}
+tr#tableHeader {
+  background: rgb(49, 155, 251);
+}
+.card-content h2 {
+  color: rgb(255, 255, 255);
+}

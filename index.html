@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link rel="stylesheet" href="./main.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Oswald"
+      rel="stylesheet"
+    />
+    <title>Cryptocurrency Prices</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col s6">
+          <div class="box">
+            <div class="card">
+              <div class="card-content">
+                <h2 id="date">Date</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col s6">
+          <div class="box">
+            <div class="card">
+              <div class="card-content">
+                <h2 id="time">Time</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div id="main"></div>
+        <div>
+          <table>
+            <thead>
+              <tr id="tableHeader">
+                <th>Currency Name</th>
+                <th>Currency Rates</th>
+                <th>Currency Location</th>
+              </tr>
+            </thead>
+            <tbody id="mainBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!-- JavaScript -->
+    <script src="./build/app.bundle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </body>
+</html>
